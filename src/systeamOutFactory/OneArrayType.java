@@ -11,6 +11,6 @@ public class OneArrayType implements ISystemOutAns {
         for (int i = 0; i < Array.getLength(tmp); i++) {
             System.out.print(Array.get(tmp, i) + "\t");
         }
-
+        System.out.println();
     }
 }

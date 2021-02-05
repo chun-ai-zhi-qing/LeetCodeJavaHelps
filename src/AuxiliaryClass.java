@@ -42,7 +42,7 @@ public class AuxiliaryClass {
         for (int i = 0; i < premeter.length / parameterTypes.length; i++) {
             Object[] premeters = new Object[parameterTypes.length];
             for (int j = 0; j < parameterTypes.length; j++) {
-                premeters[j] = ChangeType(premeter[j],parameterTypes[j]);
+                premeters[j] = ChangeType(premeter[i],parameterTypes[j]);
             }
             SysteamOutAns(method,premeters);
         }

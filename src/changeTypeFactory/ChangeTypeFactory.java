@@ -26,6 +26,8 @@ public class ChangeTypeFactory {
             return new OneCharArrayImpl();
         else if(type.getName().equals(Boolean.class.getName())||type.getName().equals("boolean"))
             return new BooleanTypeImpl();
+        else if(type.getName().equals(String[].class.getName()))
+            return new OneStringArrayImpl();
         else
             throw new Exception("没有类型");
     }

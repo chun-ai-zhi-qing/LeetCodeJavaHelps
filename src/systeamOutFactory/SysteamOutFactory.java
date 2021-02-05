@@ -14,6 +14,8 @@ public class SysteamOutFactory {
             return new OneArrayType();
         if(type.equals("void"))
             return new VoidDataType();
+        if(type.equals(String.class.getName()))
+            return new StringDataType();
         return null;
     }
 }
