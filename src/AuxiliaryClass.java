@@ -38,11 +38,11 @@ public class AuxiliaryClass {
         String[] premeter = readFile();
         Method method = getSolustionMethod();
         Class[] parameterTypes = method.getParameterTypes();
-        Object[] objects = new Object[premeter.length];
+//        Object[] objects = new Object[premeter.length];
         for (int i = 0; i < premeter.length / parameterTypes.length; i++) {
             Object[] premeters = new Object[parameterTypes.length];
             for (int j = 0; j < parameterTypes.length; j++) {
-                premeters[j] = ChangeType(premeter[i],parameterTypes[j]);
+                premeters[j] = ChangeType(premeter[i * parameterTypes.length + j],parameterTypes[j]);
             }
             SysteamOutAns(method,premeters);
         }

@@ -1,13 +1,19 @@
+import java.util.Deque;
+import java.util.PriorityQueue;
+
 public class Solution {
-    public double average(int[] salary) {
-        double max = Double.MIN_VALUE,min = Double.MAX_VALUE,sum = 0;
-        for (int i = 0; i < salary.length; i++) {
-            if(max<salary[i])
-                max = salary[i];
-            if(min>salary[i])
-                min = salary[i];
-            sum+=salary[i];
+    public int maxAbsoluteSum(int[] nums) {
+        int res = 0;
+        int min = 0, max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (min >= 0) min = nums[i];
+            else min += nums[i];
+            if (max <= 0) max = nums[i];
+            else max += nums[i];
+            res = Math.max(res, Math.abs(min));
+            res = Math.max(res, Math.abs(max));
         }
-        return 1.0 * (sum - max - min) / (salary.length - 2);
+        return res;
     }
 }
+
