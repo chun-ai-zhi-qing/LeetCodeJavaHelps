@@ -1,19 +1,55 @@
-import java.util.Deque;
-import java.util.PriorityQueue;
-
 public class Solution {
-    public int maxAbsoluteSum(int[] nums) {
-        int res = 0;
-        int min = 0, max = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (min >= 0) min = nums[i];
-            else min += nums[i];
-            if (max <= 0) max = nums[i];
-            else max += nums[i];
-            res = Math.max(res, Math.abs(min));
-            res = Math.max(res, Math.abs(max));
+    public int numRookCaptures(char[][] board) {
+        int x = 0,y = 0;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if(board[i][j]=='R'){
+                    x = i;
+                    y = j;
+                }
+            }
         }
-        return res;
+        int tmp =x-1 ;
+        int ans = 0;
+        while(tmp != -1){
+            if(board[tmp][y]=='B')
+                break;
+            if(board[tmp][y]=='p'){
+                ans++;
+                break;
+            }
+            tmp--;
+        }
+        tmp = x;
+        while(tmp != 8){
+            if(board[tmp][y]=='B')
+                break;
+            if(board[tmp][y]=='p'){
+                ans++;
+                break;
+            }
+            tmp++;
+        }
+        tmp = y;
+        while(tmp != 8){
+            if(board[x][tmp]=='B')
+                break;
+            if(board[x][tmp]=='p'){
+                ans++;
+                break;
+            }
+            tmp++;
+        }
+        tmp = y;
+        while(tmp != -1){
+            if(board[x][tmp]=='B')
+                break;
+            if(board[x][tmp]=='p'){
+                ans++;
+                break;
+            }
+            tmp--;
+        }
+        return ans;
     }
 }
-

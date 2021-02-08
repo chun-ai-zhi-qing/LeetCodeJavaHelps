@@ -28,6 +28,10 @@ public class ChangeTypeFactory {
             return new BooleanTypeImpl();
         else if(type.getName().equals(String[].class.getName()))
             return new OneStringArrayImpl();
+        else if(type.getName().equals("char"))
+            return new CharTypeImpl();
+        else if(type.getName().equals("[[C"))
+            return new TwoCharArrayImpl();
         else
             throw new Exception("没有类型");
     }
